@@ -1,37 +1,22 @@
 #include <stdio.h>
 
 /**
- * main - Prints 3 combination of numbers
+ * main - Lists all the natural numbers below 1024 (excluded)
+ *        that are multiples of 3 or 5.
  *
- * Return: Always (Success)
+ * Return: Always 0.
  */
 int main(void)
 {
-		int c, i, k;
+int i, sum = 0;
 
-			for (c = '0'; c <= '9'; c++)
-					{
-								for (i = '0'; i <= '9'; i++)
-											{
-															for (k = '0'; k <= '9'; k++)
-																			{
-																								if (c < i && i < k)
-																													{
-																																			putchar(c);
-																																								putchar(i);
-																																													putchar(k);
+for (i = 0; i < 1024; i++)
+{
+if ((i % 3) == 0 || (i % 5) == 0)
+sum += i;
+}
 
-																																																		if (c != '7')
-																																																								{
-																																																															putchar(',');
-																																																																					putchar(' ');
-																																																																										}
-																																																						}
-																											}
-																	}
-									}
+printf("%d\n", sum);
 
-				putchar('\n');
-
-					return (0);
+return (0);
 }
