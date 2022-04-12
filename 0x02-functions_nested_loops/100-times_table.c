@@ -1,33 +1,44 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * main - Prints combination of numbers
- *
- * Return: Always (Success)
+ * print_times_table - Prints the times table of the input,
+ *                     starting with 0.
+ * @n: The value of the times table to be printed.
  */
-int main(void)
+void print_times_table(int n)
 {
-  int c, i;
+  int num, mult, prod;
 
-  for (c = '0'; c <= '9'; c++)
+  if (n >= 0 && n <= 15)
     {
-      for (i = '0'; i <= '9'; i++)
+      for (num = 0; num <= n; num++)
 	{
-	  if (c < i)
-	    {
-	      putchar(c);
-	      putchar(i);
+	  _putchar('0');
 
-	      if (c != '8' || (c == '8' && i != '9'))
+	  for (mult = 1; mult <= n; mult++)
+	    {
+	      _putchar(',');
+	      _putchar(' ');
+
+	      prod = num * mult;
+
+	      if (prod <= 99)
+		_putchar(' ');
+	      if (prod <= 9)
+		_putchar(' ');
+
+	      if (prod >= 100)
 		{
-		  putchar(',');
-		  putchar(' ');
+		  _putchar((prod / 100) + '0');
+		  _putchar(((prod / 10)) % 10 + '0');
 		}
+	      else if (prod <= 99 && prod >= 10)
+		{
+		  _putchar((prod / 10) + '0');
+		}
+	      _putchar((prod % 10) + '0');
 	    }
+	  _putchar('\n');
 	}
     }
-
-  putchar('\n');
-
-  return (0);
 }
