@@ -1,13 +1,4 @@
 #include "hash_tables.h"
-
-/**
- * set_pair - mallocs a key/value pair to the hash table.
- * @node: a pointer to the hash table array node.
- * @key: the key, a string that cannot be empty.
- * @value: the value associated with the key, can be an empty string.
- *
- * Return: 1 on success, 0 on error.
- */
 int set_pair(hash_node_t **node, const char *key, const char *value)
 {
 	*node = malloc(sizeof(hash_node_t));
@@ -23,15 +14,6 @@ int set_pair(hash_node_t **node, const char *key, const char *value)
 	strcpy((*node)->value, value);
 	return (1);
 }
-
-/**
- * hash_table_set - adds an element to the hash table.
- * @ht: a pointer to the hash table array.
- * @key: the key, a string that cannot be empty.
- * @value: the value associated with the key, can be an empty string.
- *
- * Return: 1 on success, 0 on error.
- */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
